@@ -10,7 +10,7 @@ class Cat
     @@all << self
     # binding.pry
   end
-  #
+
   def self.all
     @@all
   end
