@@ -6,7 +6,6 @@ class Owner
 
   @@all = []
 
-
   def initialize(owner)
     @owner = owner
     @species = "human"
@@ -38,8 +37,7 @@ class Owner
 
   def buy_cat(name)
     cat = Cat.new(name,self)
-    @pets[:cats] << cat
-    # binding.pry
+    # @pets[:cats] << cat
   end
 
   def cats
@@ -48,20 +46,27 @@ class Owner
 
   def buy_dog(name)
     dog = Dog.new(name,self)
-    @pets[:dogs] << dog
+    # @pets[:dogs] << dog
   end
 
   def dogs
-    pets[:dogs]
+    @pets[:dogs]
   end
 
   def walk_dogs
-    # it "walks the dogs which makes the dogs' moods happy" do
-    #   dog = Dog.new("Daisy", @owner)
-    #   @owner.walk_dogs
-    #   expect(dog.mood).to eq("happy")
-    # end
-    binding.pry
-    dog = Dog.new(dogs,self)
+    @pets[:dogs].each {|dog| dog.mood = "happy"}
   end
+
+  def feed_cats
+    @pets[:cats].each {|cat| cat.mood = "happy"}
+  end
+
+  def sell_pets
+  # binding.pry
+    @pets.each do |pet,mood|
+      mood.each {|o|  o.mood = "nervous"}
+      @pets
+    end
+  end
+
 end

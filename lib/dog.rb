@@ -8,6 +8,7 @@ class Dog
     @name = name
     @mood = "nervous"
     @@all << self
+    owner.pets[:dogs] << self
   end
 
   def self.all
