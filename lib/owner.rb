@@ -62,11 +62,15 @@ class Owner
   end
 
   def sell_pets
-  # binding.pry
     @pets.each do |pet,mood|
       mood.each {|o|  o.mood = "nervous"}
-      pet.owner = nil
+      mood.each {|o|  o.owner = nil}
     end
   end
 
+  def list_pets
+    cat_count = pets[:cats].size
+    dog_count = pets[:dogs].size
+   "I have #{dog_count} dog(s), and #{cat_count} cat(s)."
+  end
 end
