@@ -2,15 +2,14 @@ require "pry"
 
 class Owner
 
-  attr_reader :name, :species
+  attr_reader :name, :species, :pets
 
   @@all_owners = []
-  @@all_cats = []
-  @@all_dogs = []
 
   def initialize(name)
     @name = name
     @species = "human"
+    @pets = {dogs: [], cats: []}
     @@all_owners << self
   end
 
@@ -34,19 +33,20 @@ class Owner
     "I am a #{@species}."
   end
 
+
+
+
   def cats
-    @@all_cats
+    Cat.all.select { |kitty| kitty.owner == self }
   end
 
   def buy_cat(cat_name)
-    cat = Cat.new(cat_name, self)
-    @@all_cats << cat
+    kitty = Cat.new(cat_name, self)
+    @pets[:cats] << kitty
   end
 
   def feed_cats
-    @@all_cats.each do |cat|
-      cat.mood = "happy"
-    end
+    self.cats.each { |kitty| kitty.mood = "happy"  }
   end
 
 
@@ -54,40 +54,35 @@ class Owner
 
 
   def dogs
-    @@all_dogs
+    Dog.all.select { |dog| dog.owner == self}
   end
 
   def buy_dog(dog_name)
     dog = Dog.new(dog_name, self)
-    @@all_dogs << dog
+    @pets[:dogs] << dog
   end
 
   def walk_dogs
-    @@all_dogs.each do |dog|
-      dog.mood = "happy"
-      dog.mood
-      # binding.pry
-    end
-    # binding.pry
+    self.dogs.each { |dog| dog.mood = "happy"  }
   end
 
 
 
 
   def sell_pets
-    @@all_cats.each do |cat|
+    self.cats.each do |cat|
       cat.mood = "nervous"
       cat.owner = nil
     end
-    @@all_dogs.each do |dog|
+    self.dogs.each do |dog|
       dog.mood = "nervous"
       dog.owner = nil
     end
   end
 
 def list_pets
-  "I have #{@@all_dogs.size} dog(s), and #{@@all_cats.size} cat(s)."
-  binding.pry
+  "I have #{@pets[:dogs].size} dog(s), and #{@pets[:cats].size} cat(s)."
+  # binding.pry
 end
 
 
