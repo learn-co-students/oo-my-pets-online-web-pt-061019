@@ -11,6 +11,7 @@ class Cat
     @mood = "nervous"
     @@all << self
     @owner = owner
+    @owner.pets[:cats] << self
   end
 
   def self.all
