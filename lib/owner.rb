@@ -37,7 +37,7 @@ class Owner
  
   def buy_cat(name)
     @owner.cats.count = 0
-    #@owner.buy_cat(name)
+    @owner.buy_cat(name)
     @owner.cats.each do |cat|
     @cats << Cat.new(name)
     end
