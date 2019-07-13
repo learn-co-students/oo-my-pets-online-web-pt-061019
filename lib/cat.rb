@@ -11,6 +11,7 @@ class Cat
     @owner = owner
     @mood = "nervous"
     @@all << self
+    @@all.include?(cat)
   end
   
   def self.all
