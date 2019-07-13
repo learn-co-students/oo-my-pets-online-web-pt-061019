@@ -17,7 +17,5 @@ class Cat
     @@all
   end
   
-  def add_cats(cat)
-    @cats << cats
-  end
+  
 end
