@@ -18,11 +18,11 @@ class Cat
     @@all
   end
   
-  def buy_cat(name)
-    @owner.cats.count = 0
-    @owner.cats.each do |cat|
-    @owner.cats << self.new(name)
-  end
-    @owner.cats.count += 1
-  end
+  # def buy_cat(name)
+  #   @owner.cats.count = 0
+  #   @owner.cats.each do |cat|
+  #   @owner.cats << self.new(name)
+  # end
+  #   @owner.cats.count += 1
+  # end
 end

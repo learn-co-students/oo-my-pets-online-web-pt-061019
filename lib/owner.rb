@@ -1,3 +1,5 @@
+require 'pry'
+
 class Owner
   attr_reader :name, :species
   attr_accessor :cats, :dogs
@@ -31,5 +33,14 @@ class Owner
   
   def self.reset_all
     @@all.clear
+  end
+ 
+  def buy_cat(name)
+    @owner.cats.count = 0
+    #@owner.buy_cat(name)
+    @owner.cats.each do |cat|
+    @cats << Cat.new(name)
+    end
+    @owner.cats.count += 1
   end
 end
