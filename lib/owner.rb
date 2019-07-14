@@ -4,7 +4,7 @@ require 'pry'
 
 class Owner
   attr_reader :name, :species
-  attr_accessor :cats, :dogs
+  attr_accessor :cats, :dogs, :pets
   
   @@all = []
   @@count = 0
@@ -15,6 +15,7 @@ class Owner
     @@count += 1
     @cats = []
     @dogs = []
+    @pets = []
   end
   
   def species
@@ -51,5 +52,9 @@ class Owner
   
   def feed_cats
     @cats.each {|cat| cat.mood = "happy"}
+  end
+  
+  def sell_pets
+    @pets.each {|pet| pet.mood = "nervous"}
   end
 end
