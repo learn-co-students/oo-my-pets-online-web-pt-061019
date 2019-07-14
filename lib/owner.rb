@@ -1,5 +1,7 @@
 require 'pry'
 
+require 'pry'
+
 class Owner
   attr_reader :name, :species
   attr_accessor :cats, :dogs
@@ -36,11 +38,10 @@ class Owner
   end
  
   def buy_cat(cat_name)
-    # @owner.cats.count = 0
-    # @owner.buy_cat(name)
-    # @owner.cats.each do |cat|
-    @cats << Cat.new(cat_name)
-    # end
-    # @owner.cats.count += 1
+    @@all << Cat.new(cat_name, self)
+  end
+  
+  def buy_dog(dog_name)
+    @@all << Dog.new(dog_name, self)
   end
 end
