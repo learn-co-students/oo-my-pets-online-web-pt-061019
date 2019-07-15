@@ -1,7 +1,5 @@
 require 'pry'
 
-require 'pry'
-
 class Owner
   attr_reader :name, :species
   attr_accessor :cats, :dogs, :pets
@@ -16,6 +14,7 @@ class Owner
     @cats = []
     @dogs = []
     @pets = []
+
   end
   
   def species
@@ -55,6 +54,7 @@ class Owner
   end
   
   def sell_pets
-    @pets.each {|pet| pet.mood = "nervous"}
+    @cats.each {|cat| cat.mood = "nervous"}
+    @dogs.each {|dog| dog.mood = "nervous"}
   end
 end
