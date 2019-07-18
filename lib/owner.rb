@@ -46,9 +46,16 @@ class Owner
   end
 
   def sell_pets
-    @pets = @cats + @dogs
-    @pets.map {|pet| pet.mood = "nervous"}
-    # @cats.map {|cat| cat.owner.clear}
-    # @dogs.map {|dog| dog.owner.clear}
+    pets = self.cats + self.dogs
+    pets.each do |pet|
+      pet.mood = "nervous"
+      pet.owner = nil
+    end
+    self.cats.clear
+    self.dogs.clear
+  end
+  
+  def list_pets
+    "I have #{self.dogs.count} dog(s), and #{self.cats.count} cat(s)."
   end
 end
