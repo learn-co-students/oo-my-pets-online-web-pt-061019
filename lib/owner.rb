@@ -1,3 +1,4 @@
+require 'pry'
 class Owner
   attr_accessor :pets
   attr_reader :name, :species
@@ -24,7 +25,10 @@ class Owner
   end
 
   def cats 
-   @@all 
+    owners_cats = [] << @name
+   Cat.all.each do |current_cat| 
+    #binding.pry
+   end
   end
   
   def buy_cat(name)
