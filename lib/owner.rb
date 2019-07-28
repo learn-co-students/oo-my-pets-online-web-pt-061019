@@ -8,7 +8,12 @@ class Owner
     @species = species
     @name = name
     @@all << self 
+    @pets = { :fishes => [], :dogs => [], :cats => [] }
   end
+
+  def save
+    @@all << self
+  end 
 
   def species
     @species = "human"
@@ -16,6 +21,34 @@ class Owner
   
   def say_species
     return "I am a #{@species}."
+  end
+
+  def cats 
+   @@all 
+  end
+  
+  def buy_cat(name)
+    
+  end 
+
+  def buy_dog(name)
+
+  end 
+
+  def walk_dogs
+    
+  end
+
+  def feed_cats
+
+  end
+
+  def sell_pets 
+
+  end 
+
+  def list_pets
+
   end
 
   def self.all 
