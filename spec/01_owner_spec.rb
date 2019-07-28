@@ -3,7 +3,7 @@ require_relative 'spec_helper.rb'
 describe Owner do
 
   before do
-    @owner = Owner.new("Victoria")
+    @owner = Owner.new("Victoria") #this shows that I need to have a value to input into the initialize method
   end
 
   context 'Instance methods' do
